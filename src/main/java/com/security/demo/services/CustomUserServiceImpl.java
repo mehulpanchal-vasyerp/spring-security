@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.security.demo.dto.UserDetailDto;
 import com.security.demo.model.Role;
-import com.security.demo.model.User;
+import com.security.demo.model.Users;
 import com.security.demo.repository.RoleRepository;
 import com.security.demo.repository.UserRepository;
 
@@ -34,7 +34,7 @@ public class CustomUserServiceImpl implements UserDetailsService,CustomUserServi
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(username).get();
+		Users user = userRepository.findByUsername(username);
 		 	List<GrantedAuthority>authorities = List.of(new SimpleGrantedAuthority(user.getRole()));
 		return new org.springframework.security.core.userdetails.User(username, user.getPassword(),authorities);
 //		return org.springframework.security.core.userdetails.User(username, user.getPassword(),authorities);
@@ -42,7 +42,7 @@ public class CustomUserServiceImpl implements UserDetailsService,CustomUserServi
 	}
 @Override
 public void saveUser(UserDetailDto userDetailDto) {
-	User user = new User();
+	Users user = new Users();
 	user.setName(userDetailDto.getName());
 	user.setUsername(userDetailDto.getUsername());
 	user.setEmail(userDetailDto.getEmail());

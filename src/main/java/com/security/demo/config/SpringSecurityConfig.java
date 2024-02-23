@@ -15,11 +15,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-
-	}
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
@@ -27,14 +22,16 @@ public class SpringSecurityConfig {
 		.csrf(a->a.disable())
 
 		.authorizeHttpRequests(authorizeRequests -> authorizeRequests
-//						.requestMatchers("/**").permitAll()
+						.requestMatchers("/**").permitAll()
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						.requestMatchers("/user/**").hasRole("USER")
 						.anyRequest().permitAll())
 	
 		
 	.formLogin(form->form
-			.successHandler(new CustomSuccessHandler()))
+			.loginPage("/login"))
+//			.loginProcessingUrl("/auth")
+//			.successHandler(new CustomSuccessHandler()))
 
 	.logout(logout -> logout
             .permitAll());
