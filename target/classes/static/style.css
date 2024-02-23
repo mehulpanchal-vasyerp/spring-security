@@ -1,0 +1,83 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;;
+    margin: 10;
+    padding: 10;
+}
+
+.container {
+    max-width: 350px; /* Adjust the width to your desired value */
+    margin: 15px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: blue;
+}
+h2:hover{
+	color:lightblue
+	
+}
+
+form {
+    display: flex;
+    color: lightblue;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+label {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: blue;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: lightblue;
+}
+button{
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+	 background-color: blue;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover{
+	background-color: lightblue;
+}
+a {
+    text-align: center;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.forgot-password{
+	   color: blue;
+}
+.btn{
+	    display: flex;
+    justify-content: center;
+    margin-top: -19px;
+}
